@@ -8,8 +8,7 @@ import (
 	"net/http"
 	"sync"
 
-	"homeinventory/internal/app"
-	"homeinventory/internal/config"
+	"homeinventory/bootstrap"
 )
 
 var (
@@ -21,7 +20,7 @@ var (
 // Handler is the exported function Vercel invokes for each request.
 func Handler(w http.ResponseWriter, r *http.Request) {
 	buildOnce.Do(func() {
-		router, _, buildErr = app.New(config.Load())
+		router, buildErr = bootstrap.NewRouter()
 	})
 	if buildErr != nil {
 		http.Error(w, "service unavailable", http.StatusServiceUnavailable)
