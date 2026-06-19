@@ -1,0 +1,24 @@
+# Dependencies
+/node_modules
+
+# Next.js build output
+/.next
+/out
+*.tsbuildinfo
+
+# Go
+*.exe
+
+# Local database & runtime data
+/data
+/tmp
+
+# Environment
+.env
+.env.local
+
+# OS / editor
+.DS_Store
+
+# Claude Code local settings
+.claude/settings.local.json

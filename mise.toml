@@ -1,0 +1,12 @@
+# Project-local toolchain, managed by mise (https://mise.jdx.dev).
+# Run `mise install` once to provision the pinned versions, then `mise exec -- <cmd>`
+# (or activate mise in your shell) to use them.
+[tools]
+go = "1.25"
+node = "22"
+
+[env]
+# Local dev only: make `next dev` proxy /api/* to the Go API server so the
+# browser stays same-origin and the session cookie is sent. In production on
+# Vercel, /api/* is served by the Go function, so no proxy is used.
+API_PROXY_TARGET = "http://localhost:8080"
